@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Virtue Foundation IDP Audit Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; color: #10223B; margin: 36px; line-height: 1.45; }
+    h1, h2 { color: #0A1628; }
+    .metric { display: inline-block; min-width: 170px; padding: 14px; margin: 8px; border: 1px solid #D5E3F0; border-radius: 8px; }
+    .metric strong { display: block; font-size: 28px; color: #007C6C; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+    th, td { border: 1px solid #D5E3F0; padding: 8px; text-align: left; vertical-align: top; }
+    th { background: #EFF8F6; }
+    .critical { color: #A40000; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Virtue Foundation IDP Audit Report</h1>
+  <p>This report shows the data used, extraction outcomes, validation findings, and recommended action path for medical desert planning.</p>
+  <div class="metric"><strong>50</strong> Facilities parsed</div>
+  <div class="metric"><strong>14</strong> Validation signals</div>
+  <div class="metric"><strong>1</strong> Medical deserts</div>
+  <div class="metric"><strong>254925</strong> Est. patients impacted</div>
+
+  <h2>Lowest Access Regions</h2>
+  <table><tr><th>Region</th><th>Score</th><th>Priority</th><th>Specialty gaps</th><th>Citations</th></tr>
+  <tr><td>Central</td><td>33.86</td><td>5</td><td>cardiology, emergencyMedicine, generalSurgery, internalMedicine, ophthalmology</td><td></td></tr><tr><td>Upper East</td><td>42.83</td><td>4</td><td>cardiology, dentistry, internalMedicine, ophthalmology, orthopedicSurgery</td><td>fac_005</td></tr><tr><td>Upper West</td><td>46.89</td><td>4</td><td>cardiology, familyMedicine, internalMedicine, ophthalmology, orthopedicSurgery</td><td></td></tr><tr><td>Oti</td><td>53.36</td><td>4</td><td>cardiology, internalMedicine, ophthalmology, orthopedicSurgery</td><td></td></tr><tr><td>Ahafo</td><td>53.74</td><td>4</td><td>cardiology, dentistry, ophthalmology, pediatrics</td><td></td></tr>
+  </table>
+
+  <h2>Top Intervention Targets</h2>
+  <table><tr><th>Region</th><th>Specialty</th><th>Urgency</th><th>Patient impact</th><th>Rationale</th><th>Source rows</th></tr>
+  <tr><td>Upper East</td><td>cardiology</td><td>89.17</td><td>84975</td><td>Upper East scores 42.83/100 and lacks cardiology; 2 high-risk validation signals need attention.</td><td>row_005, row_021, row_022</td></tr><tr><td>Upper East</td><td>dentistry</td><td>89.17</td><td>84975</td><td>Upper East scores 42.83/100 and lacks dentistry; 2 high-risk validation signals need attention.</td><td>row_005, row_021, row_022</td></tr><tr><td>Upper East</td><td>internalMedicine</td><td>89.17</td><td>84975</td><td>Upper East scores 42.83/100 and lacks internalMedicine; 2 high-risk validation signals need attention.</td><td>row_005, row_021, row_022</td></tr><tr><td>Central</td><td>cardiology</td><td>86.14</td><td>81962</td><td>Central scores 33.86/100 and lacks cardiology; 0 high-risk validation signals need attention.</td><td>row_006, row_016</td></tr><tr><td>Central</td><td>emergencyMedicine</td><td>86.14</td><td>81962</td><td>Central scores 33.86/100 and lacks emergencyMedicine; 0 high-risk validation signals need attention.</td><td>row_006, row_016</td></tr><tr><td>Central</td><td>generalSurgery</td><td>86.14</td><td>81962</td><td>Central scores 33.86/100 and lacks generalSurgery; 0 high-risk validation signals need attention.</td><td>row_006, row_016</td></tr><tr><td>Upper West</td><td>cardiology</td><td>69.11</td><td>66167</td><td>Upper West scores 46.89/100 and lacks cardiology; 0 high-risk validation signals need attention.</td><td>row_004, row_023, row_024</td></tr><tr><td>Upper West</td><td>familyMedicine</td><td>69.11</td><td>66167</td><td>Upper West scores 46.89/100 and lacks familyMedicine; 0 high-risk validation signals need attention.</td><td>row_004, row_023, row_024</td></tr>
+  </table>
+
+  <h2>Field Verification Queue</h2>
+  <table><tr><th>Facility</th><th>Region</th><th>Risk score</th><th>Evidence</th><th>Action</th></tr>
+  <tr><td>Hohoe Capability Centre</td><td>Volta</td><td class="critical">228</td><td>capability=ICU; equipment lacks generator</td><td>Call facility administrator and request field verification before routing patients.</td></tr><tr><td>Axim Coastal Clinic</td><td>Western</td><td class="critical">218</td><td>capability=ICU; equipment lacks generator</td><td>Call facility administrator and request field verification before routing patients.</td></tr><tr><td>Bolgatanga Surgical Mission</td><td>Upper East</td><td class="critical">200</td><td>capability=ICU; equipment lacks generator</td><td>Call facility administrator and request field verification before routing patients.</td></tr><tr><td>Osu NICU Claim Clinic</td><td>Greater Accra</td><td class="critical">117</td><td>capability=ICU; equipment lacks generator</td><td>Call facility administrator and request field verification before routing patients.</td></tr><tr><td>Tamale 24 Hour Surgery Desk</td><td>Northern</td><td class="critical">112</td><td>generalSurgery with numberDoctors=0</td><td>Call facility administrator and request field verification before routing patients.</td></tr>
+  </table>
+  <h2>Traceability</h2>
+  <p>Every recommendation above links to source row IDs. In production, the same shape is logged as MLflow child-run artifacts for extraction, validation, anomaly detection, scoring, and recommendation steps.</p>
+</body>
+</html>
