@@ -1,6 +1,10 @@
 """Streamlit command center for NGO healthcare planners."""
 
 from __future__ import annotations
+import sys
+import pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
+
 
 import csv
 import json
